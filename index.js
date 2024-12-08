@@ -3,6 +3,7 @@ const express = require("express");
 const path = require('path');
 const index = require("./routes/index");
 const sk = require("./routes/sk");
+const chat = require("./routes/chat");
 const cookie = require("./routes/cookie");
 const id_notfound = require("./routes/404");
 
@@ -13,7 +14,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use("/", index);
-app.use("/useful/syarat-dan-ketentuan", sk)
+app.use("/chat", chat);
+app.use("/useful/syarat-dan-ketentuan", sk);
 app.use("/useful/kebijakan-cookie", cookie);
 app.use("/sites/error", id_notfound);
 // 404 handler
